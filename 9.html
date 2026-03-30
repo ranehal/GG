@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --warm-orange: #FF9800;
+            --soft-pink: #FF8A80;
+            --fresh-green: #66BB6A;
+            --sunny-yellow: #FFD54F;
+            --cream-bg: #FFF8E1;
+            --soft-brown: #8D6E63;
+            --light-pink: #FFE0E0;
+            --light-orange: #FFE0B2;
+            --light-green: #E8F5E9;
+            --light-yellow: #FFF9C4;
+            --white: #ffffff;
+            --text-dark: #5D4037;
+            --text-medium: #795548;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1280px;
+            height: 720px;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFE0E0 50%, #FFE0B2 100%);
+            color: var(--text-dark);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        @-webkit-keyframes slideDown {
+            from { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+            to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+        }
+        @keyframes slideDown {
+            from { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+            to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+        }
+        
+        @-webkit-keyframes slideUp {
+            from { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+            to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+            to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+        }
+        
+        @-webkit-keyframes bounceIn {
+            0% { opacity: 0; -webkit-transform: scale(0.3); transform: scale(0.3); }
+            50% { -webkit-transform: scale(1.1); transform: scale(1.1); }
+            100% { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
+        }
+        @keyframes bounceIn {
+            0% { opacity: 0; -webkit-transform: scale(0.3); transform: scale(0.3); }
+            50% { -webkit-transform: scale(1.1); transform: scale(1.1); }
+            100% { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
+        }
+        
+        @-webkit-keyframes pulse {
+            0%, 100% { -webkit-transform: scale(1); transform: scale(1); }
+            50% { -webkit-transform: scale(1.05); transform: scale(1.05); }
+        }
+        @keyframes pulse {
+            0%, 100% { -webkit-transform: scale(1); transform: scale(1); }
+            50% { -webkit-transform: scale(1.05); transform: scale(1.05); }
+        }
+        
+        @-webkit-keyframes float {
+            0%, 100% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+            50% { -webkit-transform: translateY(-10px); transform: translateY(-10px); }
+        }
+        @keyframes float {
+            0%, 100% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+            50% { -webkit-transform: translateY(-10px); transform: translateY(-10px); }
+        }
+        
+        .container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            padding: 40px 70px 20px;
+            background: rgba(255, 255, 255, 0.85);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            -webkit-animation: slideDown 0.8s ease-out;
+            animation: slideDown 0.8s ease-out;
+        }
+        .header-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            background: linear-gradient(135deg, var(--fresh-green), var(--sunny-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .header-content p {
+            color: var(--text-medium);
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .revenue-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--fresh-green), #43A047);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 4px 16px rgba(102, 187, 106, 0.4);
+            -webkit-animation: pulse 3s infinite;
+            animation: pulse 3s infinite;
+        }
+        
+        .main-container {
+            flex: 1;
+            padding: 25px 70px 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .streams-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .stream-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+        .stream-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+        .stream-card:nth-child(1) { 
+            -webkit-animation: slideUp 0.6s ease-out 0.2s both;
+            animation: slideUp 0.6s ease-out 0.2s both;
+        }
+        .stream-card:nth-child(1)::before { background: linear-gradient(90deg, var(--warm-orange), #FFB74D); }
+        .stream-card:nth-child(2) { 
+            -webkit-animation: slideUp 0.6s ease-out 0.4s both;
+            animation: slideUp 0.6s ease-out 0.4s both;
+        }
+        .stream-card:nth-child(2)::before { background: linear-gradient(90deg, var(--fresh-green), #81C784); }
+        .stream-card:nth-child(3) { 
+            -webkit-animation: slideUp 0.6s ease-out 0.6s both;
+            animation: slideUp 0.6s ease-out 0.6s both;
+        }
+        .stream-card:nth-child(3)::before { background: linear-gradient(90deg, var(--soft-pink), #FFAB91); }
+        .stream-card:nth-child(4) { 
+            -webkit-animation: slideUp 0.6s ease-out 0.8s both;
+            animation: slideUp 0.6s ease-out 0.8s both;
+        }
+        .stream-card:nth-child(4)::before { background: linear-gradient(90deg, var(--sunny-yellow), #FFE082); }
+        
+        .stream-card:hover {
+            -webkit-transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        }
+        
+        .stream-emoji {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 16px;
+            -webkit-animation: float 4s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
+        }
+        .stream-card:nth-child(1) .stream-emoji { background: var(--light-orange); animation-delay: 0s; }
+        .stream-card:nth-child(2) .stream-emoji { background: var(--light-green); animation-delay: 1s; }
+        .stream-card:nth-child(3) .stream-emoji { background: var(--light-pink); animation-delay: 2s; }
+        .stream-card:nth-child(4) .stream-emoji { background: var(--light-yellow); animation-delay: 3s; }
+        
+        .stream-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        .stream-desc {
+            font-size: 13px;
+            color: var(--text-medium);
+            line-height: 1.5;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        
+        .stream-metric {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--cream-bg);
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 2px solid #FFE0B2;
+        }
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+        .metric-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .stream-card:nth-child(1) .metric-value { color: var(--warm-orange); }
+        .stream-card:nth-child(2) .metric-value { color: var(--fresh-green); }
+        .stream-card:nth-child(3) .metric-value { color: var(--soft-pink); }
+        .stream-card:nth-child(4) .metric-value { color: var(--sunny-yellow); }
+        
+        .total-revenue-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 18px 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            -webkit-animation: slideUp 0.8s ease-out 1s both;
+            animation: slideUp 0.8s ease-out 1s both;
+        }
+        .total-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .total-emoji {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--fresh-green), #81C784);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            -webkit-flex-shrink: 0;
+            flex-shrink: 0;
+            -webkit-animation: bounceIn 1s ease-out 1.5s both;
+            animation: bounceIn 1s ease-out 1.5s both;
+        }
+        .total-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .total-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--fresh-green);
+        }
+        .total-right {
+            display: flex;
+            gap: 28px;
+        }
+        .breakdown-item {
+            text-align: center;
+        }
+        .breakdown-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .breakdown-label {
+            font-size: 11px;
+            color: var(--text-medium);
+            margin-top: 3px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Yummy Profits! 💰</h1>
+                <p>Profiting from Efficiency - 4 Revenue Pillars</p>
+            </div>
+            <div class="revenue-badge">
+                <i class="material-icons" style="font-size: 20px;">monetization_on</i>
+                Revenue Streams
+            </div>
+        </div>
+
+        <div class="main-container">
+            <div class="streams-grid">
+                <div class="stream-card">
+                    <div class="stream-emoji">🛒</div>
+                    <div class="stream-title">Affiliate Leads</div>
+                    <div class="stream-desc">Commission from Chaldal, Pandamart for directed grocery traffic</div>
+                    <div class="stream-metric">
+                        <span class="metric-label">Commission Rate</span>
+                        <span class="metric-value">15%</span>
+                    </div>
+                </div>
+
+                <div class="stream-card">
+                    <div class="stream-emoji">🤝</div>
+                    <div class="stream-title">P2P Fees</div>
+                    <div class="stream-desc">Service fee on every community food sale and surplus exchange</div>
+                    <div class="stream-metric">
+                        <span class="metric-label">Service Fee</span>
+                        <span class="metric-value">7%</span>
+                    </div>
+                </div>
+
+                <div class="stream-card">
+                    <div class="stream-emoji">📊</div>
+                    <div class="stream-title">Data Licensing</div>
+                    <div class="stream-desc">Anonymized consumption insights for FMCG supply chain optimization</div>
+                    <div class="stream-metric">
+                        <span class="metric-label">B2B Model</span>
+                        <span class="metric-value">B2B</span>
+                    </div>
+                </div>
+
+                <div class="stream-card">
+                    <div class="stream-emoji">👑</div>
+                    <div class="stream-title">Premium Tier</div>
+                    <div class="stream-desc">Advanced sleep/weight integration and personalized diet plans</div>
+                    <div class="stream-metric">
+                        <span class="metric-label">Monthly Fee</span>
+                        <span class="metric-value">$9.99</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-revenue-box">
+                <div class="total-left">
+                    <div class="total-emoji">💰</div>
+                    <div>
+                        <div class="total-label">Projected Annual Revenue (Year 3)</div>
+                        <div class="total-value">$2.4M</div>
+                    </div>
+                </div>
+                <div class="total-right">
+                    <div class="breakdown-item">
+                        <div class="breakdown-number">40%</div>
+                        <div class="breakdown-label">Affiliate</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-number">25%</div>
+                        <div class="breakdown-label">P2P Fees</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-number">20%</div>
+                        <div class="breakdown-label">Data</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-number">15%</div>
+                        <div class="breakdown-label">Premium</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="navigation.js"></script>
+</body>
+</html>
